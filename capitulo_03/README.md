@@ -151,3 +151,58 @@ A principal situação na qual você usaria `isize` ou `usize` é ao indexar alg
 | Byte ( u8apenas)   | b'A'        |
 
 Comentar sobre estouro de valor, diferença entre compilar como debug ou release.
+
+### O tipos ponto flutuante
+
+O tipo "ponto flutuante" em rust nada mais é que números com casas decimais, exemplo de valores:
+
+- 0.12
+- 1.45
+- 1_001.951
+- 1_753_183.927
+
+#### Declaração
+
+`let pf1 = 0.12;`
+
+O tipo padrão é `f64`
+
+O tipo `f32` 32 bits tem precisão única, `f64` 64 bits tem [precisão dupla](https://pt.wikipedia.org/wiki/Dupla_precis%C3%A3o_no_formato_de_ponto_flutuante).
+
+Uma das primeiras linguagens de programação a fornece ponto flutuante com precisão única e dupla foi o Fortran (1957, 63 anos atrás).
+
+A precisão dupla fornece uma relativa precisão de cerca de 16 dígitos decimais e intervalo de 10 elevado a -308 a 10 elevado a +308 (308 zeros pra lá (positivo) e pra cá (negativo)).
+
+Precisão dupla é conhecida como `double` na linguagem C, C++ e Java.
+
+Processadores modernos processam números decimais de 64 bits com a mesma velocidade de números decimais de 32 bits.
+
+O termo precisão dupla não é referente a ter o dobro de precisão, mas referente a usar o dobro de bits de um ponto flutuante regular.
+
+Precisão simples ou dupla, não esta ligada a arquitetura do processador, ou seja, um processador com arquitetura de 32 bits consegue utilizar e processar números de precisa dupla.
+
+#### Padrao IEEE
+
+Precisão Única
+
+- O primeiro bit é o bit de sinal (informa se o número é negativo ou positivo), S,
+- os próximos oito bits são os bits do expoente , 'E' e
+- os 23 bits finais são a fração 'F':
+
+```
+S EEEEEEEE FFFFFFFFFFFFFFFFFFFFFFF
+0 1      8 9                    31
+```
+
+Precisão Dupla
+
+- O primeiro bit é o bit de sinal (informa se o número é negativo ou positivo), S,
+- os próximos onze bits são os expoentes , 'E' e
+- os 52 bits finais são a fração 'F':
+
+```
+S EEEEEEEEEEE FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+0 1        11 12                                                63
+```
+
+Ou seja, precisão dupla utilizará mais memoria RAM que precisão simples, memoria RAM hoje em dia não é mais um problema tão grande assim, mas dependendo do projeto/cenário (IoT por exemplo) saber a diferença entre esses dois tipos pode fazer diferença.
