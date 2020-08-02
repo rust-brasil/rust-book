@@ -165,7 +165,9 @@ O tipo "ponto flutuante" em rust nada mais é que números com casas decimais, e
 
 `let pf1 = 0.12;`
 
-O tipo padrão é `f64`
+O tipo padrão é `f64`, então a declaração acima é o mesmo que:
+
+`let pf1: f64 = 0.12;`
 
 O tipo `f32` 32 bits tem precisão única, `f64` 64 bits tem [precisão dupla](https://pt.wikipedia.org/wiki/Dupla_precis%C3%A3o_no_formato_de_ponto_flutuante).
 
@@ -206,3 +208,15 @@ S EEEEEEEEEEE FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
 ```
 
 Ou seja, precisão dupla utilizará mais memoria RAM que precisão simples, memoria RAM hoje em dia não é mais um problema tão grande assim, mas dependendo do projeto/cenário (IoT por exemplo) saber a diferença entre esses dois tipos pode fazer diferença.
+
+### Operações numéricas
+
+### O tipo booleano
+
+### O Tipo Caracter
+
+### Tipos compostos
+
+#### O tipo de tupla
+
+#### O tipo de matriz
