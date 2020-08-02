@@ -176,6 +176,7 @@ Uma das primeiras linguagens de programação a fornece ponto flutuante com prec
 A precisão dupla fornece uma relativa precisão de cerca de 16 dígitos decimais e intervalo de 10 elevado a -308 a 10 elevado a +308 (308 zeros pra lá (positivo) e pra cá (negativo)).
 
 Precisão dupla é conhecida como `double` na linguagem C, C++ e Java.
+Precisão única é conhecida como `float` na linguagem C, C++ e Java.
 
 Processadores modernos processam números decimais de 64 bits com a mesma velocidade de números decimais de 32 bits.
 
@@ -208,6 +209,13 @@ S EEEEEEEEEEE FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
 ```
 
 Ou seja, precisão dupla utilizará mais memoria RAM que precisão simples, memoria RAM hoje em dia não é mais um problema tão grande assim, mas dependendo do projeto/cenário (IoT por exemplo) saber a diferença entre esses dois tipos pode fazer diferença.
+
+#### Videos com mais informações e explicações:
+
+Indicação de vídeos que aborda o assunto e sobre erros de ponto flutuante (imprecisão)
+
+- [em portugues](https://www.youtube.com/watch?v=dkaB4kGtb7s)
+- [em inglês](https://www.youtube.com/watch?v=ILKjj30pb9E)
 
 ### Operações numéricas
 
