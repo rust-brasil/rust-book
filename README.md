@@ -1,8 +1,10 @@
 # Clube do Livro - Explorando o Rust Book
 Este repositório contém notas, códigos e resumos sobre uma exploração do [Rust Book](https://doc.rust-lang.org/book/), uma série de vídeos postada no [Youtube](https://www.youtube.com/channel/UCxNiAlJpJPaRo80lOn1fstQ):
 
-- [Clube do Livro #01 - Introdução e Hello World](https://www.youtube.com/watch?v=CdQv9awFeYk)
-- [Clube do Livro #02 - Programando um jogo de adivinhação](https://www.youtube.com/watch?v=85JZHiyTEHQ)
+- [Clube do Livro #01 - Introdução e Hello World](https://www.youtube.com/watch?v=L7KQ3MpTrI4)
+- [Clube do Livro #02 - Programando um jogo de adivinhação](https://www.youtube.com/watch?v=9p1LkASLHY4)
   - [Código-fonte do jogo comentado](/capitulo_02/guessing_game)
+- [#03 - Conceitos comuns de programação - parte 01](https://www.youtube.com/watch?v=cGyxWP-9enY)
+  - [resumo do vídeo](/capitulo_03#03---conceitos-comuns-de-programa%C3%A7%C3%A3o)
 
 Os vídeos ainda estão em produção e são produzidos ao vivo toda segunda-feira, às 07h (BRT), em nosso [canal no Youtube](https://www.youtube.com/channel/UCxNiAlJpJPaRo80lOn1fstQ)
