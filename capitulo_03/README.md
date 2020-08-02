@@ -211,12 +211,27 @@ Ou seja, precisão dupla utilizará mais memoria RAM que precisão simples, memo
 
 ### Operações numéricas
 
-### O tipo booleano
+O Rust suporta as operações matemáticas básicas que você esperaria de todos os tipos de números: adição, subtração, multiplicação, divisão e resto. O código a seguir mostra como você usaria cada um em uma instrução `let`:
 
-### O Tipo Caracter
+```rust
+fn main() {
+    // addition - soma
+    let sum = 5 + 10;
 
-### Tipos compostos
+    // subtraction - substração
+    let difference = 95.5 - 4.3;
 
-#### O tipo de tupla
+    // multiplication - multiplicação
+    let product = 4 * 30;
 
-#### O tipo de matriz
+    // division - divisão
+    let quotient = 56.7 / 32.2;
+
+    // remainder - resto
+    let remainder = 43 % 5;
+}
+```
+
+Cada expressão nessas instruções usa um operador matemático e avalia como um único valor, que é então vinculado a uma variável. 
+
+O Apêndice B do livro contém uma lista de todos os operadores que o Rust fornece.
