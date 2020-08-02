@@ -169,7 +169,7 @@ O tipo padrão é `f64`, então a declaração acima é o mesmo que:
 
 `let pf1: f64 = 0.12;`
 
-O tipo `f32` 32 bits tem precisão única, `f64` 64 bits tem [precisão dupla](https://pt.wikipedia.org/wiki/Dupla_precis%C3%A3o_no_formato_de_ponto_flutuante).
+O tipo `f32` de 32 bits tem precisão única, `f64` de 64 bits tem [precisão dupla](https://pt.wikipedia.org/wiki/Dupla_precis%C3%A3o_no_formato_de_ponto_flutuante).
 
 Uma das primeiras linguagens de programação a fornece ponto flutuante com precisão única e dupla foi o Fortran (1957, 63 anos atrás).
 
