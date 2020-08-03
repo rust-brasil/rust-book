@@ -6,7 +6,7 @@ Este repositório contém notas, códigos e resumos sobre uma exploração do [R
   - [Código-fonte do jogo comentado](/capitulo_02/guessing_game)
 - [#03 - Conceitos comuns de programação - parte 01](https://www.youtube.com/watch?v=cGyxWP-9enY)
   - [resumo do vídeo](/capitulo_03#03---conceitos-comuns-de-programa%C3%A7%C3%A3o)
-- #03 - Conceitos comuns de programação - parte 02 (em breve)
+- [#03 - Conceitos comuns de programação - parte 02](https://www.youtube.com/watch?v=z8s5Vb0Yexc)
   - [resumo do vídeo](/capitulo_03/README.md#o-tipos-ponto-flutuante)
 
 Os vídeos ainda estão em produção e são produzidos ao vivo toda segunda-feira, às 07h (BRT), em nosso [canal no Youtube](https://www.youtube.com/channel/UCxNiAlJpJPaRo80lOn1fstQ)
