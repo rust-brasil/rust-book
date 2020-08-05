@@ -152,7 +152,7 @@ A principal situação na qual você usaria `isize` ou `usize` é ao indexar alg
 
 Comentar sobre estouro de valor, diferença entre compilar como debug ou release.
 
-### O tipos ponto flutuante
+### Os tipos de ponto flutuante
 
 O tipo "ponto flutuante" em rust nada mais é que números com casas decimais, exemplo de valores:
 
@@ -165,11 +165,11 @@ O tipo "ponto flutuante" em rust nada mais é que números com casas decimais, e
 
 `let pf1 = 0.12;`
 
-O tipo padrão é `f64`, então a declaração acima é o mesmo que:
+O tipo padrão é `f64`, porque nos processadores modernos ele tem quase a mesma velocidade do `f32`, mas oferece mais precisão. Então a declaração acima é o mesmo que:
 
 `let pf1: f64 = 0.12;`
 
-O tipo `f32` de 32 bits tem precisão única, `f64` de 64 bits tem [precisão dupla](https://pt.wikipedia.org/wiki/Dupla_precis%C3%A3o_no_formato_de_ponto_flutuante).
+O Rust tem dois tipos primitivos para números de ponto flutuante. Esses tipos são a implementação dos formatos `binary32` e `binary64` da especificação `IEEE-754 (IEC 60559)` (em detalhes abaixo): o tipo `f32` de 32 bits (precisão única) e o tipo `f64` de 64 bits ([precisão dupla](https://pt.wikipedia.org/wiki/Dupla_precis%C3%A3o_no_formato_de_ponto_flutuante)), respectivamente.
 
 Uma das primeiras linguagens de programação a fornece ponto flutuante com precisão única e dupla foi o Fortran (1957, 63 anos atrás).
 
@@ -184,13 +184,16 @@ O termo precisão dupla não é referente a ter o dobro de precisão, mas refere
 
 Precisão simples ou dupla, não esta ligada a arquitetura do processador, ou seja, um processador com arquitetura de 32 bits consegue utilizar e processar números de precisa dupla.
 
-#### Padrao IEEE
+#### Padrão IEEE-754 (IEC 60559)
+Documento que define uma implementação padronizada para a representação de números de ponto flutuante em computadores.
+Antes desse padrão, cada linguagem e hardware usava uma representação própria, o que resultava em problemas de interoperabilidade.
 
 Precisão Única
 
 - O primeiro bit é o bit de sinal (informa se o número é negativo ou positivo), S,
 - os próximos oito bits são os bits do expoente , 'E' e
 - os 23 bits finais são a fração 'F':
+- aproximadamente 7 casas decimais de precisão
 
 ```
 S EEEEEEEE FFFFFFFFFFFFFFFFFFFFFFF
@@ -202,6 +205,7 @@ Precisão Dupla
 - O primeiro bit é o bit de sinal (informa se o número é negativo ou positivo), S,
 - os próximos onze bits são os expoentes , 'E' e
 - os 52 bits finais são a fração 'F':
+- aproximadamente 15 casas decimais de precisão
 
 ```
 S EEEEEEEEEEE FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
@@ -210,12 +214,17 @@ S EEEEEEEEEEE FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
 
 Ou seja, precisão dupla utilizará mais memoria RAM que precisão simples, memoria RAM hoje em dia não é mais um problema tão grande assim, mas dependendo do projeto/cenário (IoT por exemplo) saber a diferença entre esses dois tipos pode fazer diferença.
 
-#### Videos com mais informações e explicações:
+#### Informações sobre o tema
 
-Indicação de vídeos que aborda o assunto e sobre erros de ponto flutuante (imprecisão)
+Indicação de vídeos que aborda o assunto e sobre erros de ponto flutuante (imprecisão):
 
-- [em portugues](https://www.youtube.com/watch?v=dkaB4kGtb7s)
+- [em português](https://www.youtube.com/watch?v=dkaB4kGtb7s)
 - [em inglês](https://www.youtube.com/watch?v=ILKjj30pb9E)
+
+Site:
+
+- [O que todo programador tem que saber sobre pontos flutuantes [em inglês]](https://floating-point-gui.de/) 
+
 
 ### Operações numéricas
 
@@ -243,3 +252,18 @@ fn main() {
 Cada expressão nessas instruções usa um operador matemático e avalia como um único valor, que é então vinculado a uma variável. 
 
 O Apêndice B do livro contém uma lista de todos os operadores que o Rust fornece.
+
+Não é possível misturar inteiros com números de ponto flutuante, você precisa convertê-los antes:
+
+```rust
+    // conversão de inteiro para ponto flutuante com safe casting
+    // https://doc.rust-lang.org/nomicon/casts.html
+    let x = 14;
+    let y = 2.8;
+    let z = (x as f64)/y; // 5
+    // conversão de ponto-flutuante para inteiro
+    // Rust simplesmente descarta a parte fracionária (.8)
+    let z = x+(y as i32); // 16
+```
+
+A filosofia por trás desta exigência (de trabalhar com variáveis do mesmo tipo em expressões numéricas) é que a autoconversão é algo perigoso: o programador pode se enganar com relação às expectativas.
