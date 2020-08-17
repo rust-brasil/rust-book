@@ -321,6 +321,8 @@ Uma sequência heterogênea **FINITA**
 
 heterogênea: tipos diferentes
 
+As tuplas são frequentemente usadas como um tipo de retorno quando você deseja retornar mais de um valor:
+
 As tuplas são finitas. Em outras palavras, uma tupla tem um length/comprimento. Aqui está uma tupla de comprimento 3:
 
 `( "olá" , 5 , 'c' );`
