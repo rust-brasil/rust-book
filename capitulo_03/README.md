@@ -357,7 +357,7 @@ fn main() {
 
 Este programa cria uma tupla, x, e então cria novas variáveis para cada elemento usando seus respectivos índices. Como acontece com a maioria das linguagens de programação, o primeiro índice em uma tupla é 0.
 
-https://doc.rust-lang.org/book/ch03-02-data-types.html#the-tuple-type
-https://doc.rust-lang.org/std/primitive.tuple.html
+https://doc.rust-lang.org/book/ch03-02-data-types.html#the-tuple-type  
+https://doc.rust-lang.org/std/primitive.tuple.html  
 
 #### O tipo de matriz
