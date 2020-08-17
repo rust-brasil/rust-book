@@ -317,6 +317,22 @@ Os tipos compostos podem agrupar vários valores em um tipo. Rust tem dois tipos
 
 #### O tipo de tupla
 
+Uma sequência heterogênea **FINITA**
+
+heterogênea: tipos diferentes
+
+As tuplas são finitas. Em outras palavras, uma tupla tem um length/comprimento. Aqui está uma tupla de comprimento 3:
+
+`( "olá" , 5 , 'c' );`
+
+'Length'/'Comprimento' também é às vezes chamado de 'arity'/'aridade' aqui; cada tupla de comprimento diferente é um tipo diferente e distinto.
+
+Na matemática a aridade de uma função ou operação é o número de argumentos ou operandos tomados. A aridade de uma relação é o número n de elementos que compõem as n-uplas ordenadas pertencentes à relação. [Wikipédia](https://pt.wikipedia.org/wiki/Aridade)
+
+As tuplas são heterogêneas. Isso significa que cada elemento da tupla pode ter um tipo diferente. 
+
+Tuplas são uma sequência. Isso significa que eles podem ser acessados ​​por posição; isso é chamado de 'indexação de tupla'.
+
 Uma tupla é uma maneira geral de agrupar vários valores com uma variedade de tipos em um tipo composto. As tuplas têm um comprimento fixo: uma vez declaradas, elas não podem aumentar ou diminuir de tamanho.
 
 Criamos uma tupla escrevendo uma lista de valores separados por vírgulas entre parênteses. Cada posição na tupla tem um tipo e os tipos dos diferentes valores na tupla não precisam ser os mesmos. Adicionamos anotações de tipo opcionais neste exemplo:
