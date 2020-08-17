@@ -267,3 +267,94 @@ Não é possível misturar inteiros com números de ponto flutuante, você preci
 ```
 
 A filosofia por trás desta exigência (de trabalhar com variáveis do mesmo tipo em expressões numéricas) é que a autoconversão é algo perigoso: o programador pode se enganar com relação às expectativas.
+
+### O tipo booleano
+
+### O Tipo Caractere (char)
+
+- Tipo alfabético mais primitivo
+- Literais são definidos com um apóstrofo (`'`), ao contrário dos literais de `string`, que são definidos com aspas (`"`):
+
+```rust
+fn main() {
+    let c = 'z';
+    let z = 'ℤ';
+    let str = "Z";
+    let heart = '❤';
+    let heart_eyed_cat = '😻';
+    let sparkling_heart = '\u{1F496}'; // 💖 definição via codepoint unicode em hexadecimal
+}
+```
+- O tipo `char` tem 4 bytes (32 bits) de tamanho e representa um valor escalar Unicode (ou seja, um `codepoint` entre 0 a D7FF e entre E000 a 10FFFF, isto é, todos os valores unicode exceto os pares substitutos, `surrogate pairs`)
+  - Pode ser usado para representar muito mais do que os caracteres ascii
+  - Valor escalar unicode: valores de 21 bits que são a unidade básica do Unicode
+    - Conceito de caractere não está bem definido no padrão Unicode
+      - Problema: o que chamamos de caractere pode ser constituído por mais de valor escalar Unicode, por exemplo:
+        - https://emojipedia.org/emoji/%E2%9D%A4/ é a soma de
+          - https://charbase.com/2764-unicode-heavy-black-heart com
+          - https://charbase.com/fe0f-unicode-variation-selector
+        - um exemplo de par substituto
+        - ou seja, são necessários dois chars para representá-lo:
+
+        ```rust
+        fn main() {
+            let a: char = '🖤';
+            println!("{}", a.to_string());
+
+            let b: char = '❤️'; //ERRO, char só pode representar um codepoint
+            println!("{}", b.to_string());
+        }
+        // https://play.rust-lang.org/?version=stable&mode=debug&edition=2018&gist=a6fd5757faf214087f7d53eddc5f1d1a
+      ```
+- Referências:
+  - https://cheats.rs/#textual-types-ref
+  - https://andybargh.com/unicode/
+  - https://www.christianfscott.com/rust-chars-vs-go-runes/
+
+### Tipos compostos
+
+Os tipos compostos podem agrupar vários valores em um tipo. Rust tem dois tipos de compostos primitivos: tuplas e matrizes.
+
+#### O tipo de tupla
+
+Uma tupla é uma maneira geral de agrupar vários valores com uma variedade de tipos em um tipo composto. As tuplas têm um comprimento fixo: uma vez declaradas, elas não podem aumentar ou diminuir de tamanho.
+
+Criamos uma tupla escrevendo uma lista de valores separados por vírgulas entre parênteses. Cada posição na tupla tem um tipo e os tipos dos diferentes valores na tupla não precisam ser os mesmos. Adicionamos anotações de tipo opcionais neste exemplo:
+
+```rust
+fn main() {
+    let tup: (i32, f64, u8) = (500, 6.4, 1);
+}
+```
+
+A variável tup se liga a toda a tupla, porque uma tupla é considerada um único elemento composto. Para obter os valores individuais de uma tupla, podemos usar a correspondência de padrões para desestruturar um valor de tupla, como este:
+
+```rust
+fn main() {
+    let tup = (500, 6.4, 1);
+
+    let (x, y, z) = tup;
+
+    println!("The value of y is: {}", y);
+}
+```
+
+Este programa primeiro cria uma tupla e a vincula à variável tup. Em seguida, usa um padrão com let para pegar tup e transformá-lo em três variáveis separadas, x, y e z. Isso é chamado de desestruturação, porque divide a tupla única em três partes. Finalmente, o programa imprime o valor de y, que é 6,4.
+
+Além da desestruturação por meio da correspondência de padrões, podemos acessar um elemento de tupla diretamente usando um ponto (.) Seguido pelo índice do valor que desejamos acessar. Por exemplo:
+
+```rust
+fn main() {
+    let x: (i32, f64, u8) = (500, 6.4, 1);
+
+    let five_hundred = x.0;
+
+    let six_point_four = x.1;
+
+    let one = x.2;
+}
+```
+
+Este programa cria uma tupla, x, e então cria novas variáveis para cada elemento usando seus respectivos índices. Como acontece com a maioria das linguagens de programação, o primeiro índice em uma tupla é 0.
+
+#### O tipo de matriz
