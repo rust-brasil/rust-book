@@ -8,5 +8,9 @@ Este repositório contém notas, códigos e resumos sobre uma exploração do [R
   - [resumo do vídeo](/capitulo_03#03---conceitos-comuns-de-programa%C3%A7%C3%A3o)
 - [#03 - Conceitos comuns de programação - parte 02](https://www.youtube.com/watch?v=z8s5Vb0Yexc)
   - [resumo do vídeo](/capitulo_03/README.md#o-tipos-ponto-flutuante)
+- #03 - Conceitos comuns de programação - parte 03
+  - boolean
+- [#03 - Conceitos comuns de programação - parte 04](https://youtu.be/sSYDvtc7fSs)
+  - [resumo do vídeo](/capitulo_03/README.md#o-tipo-caractere-char)
 
 Os vídeos ainda estão em produção e são produzidos ao vivo toda segunda-feira, às 07h (BRT), em nosso [canal no Youtube](https://www.youtube.com/channel/UCxNiAlJpJPaRo80lOn1fstQ)
