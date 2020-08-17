@@ -2,8 +2,17 @@ fn main() {
     let tup: (i32, f64, u8) = (500, 6.4, 1);
     println!("main: tup {:?}", tup);
 
+    let ns = (12, 12);
+    let resultado = somar(ns);
+    println!("main: soma {:?} = {}", ns, resultado);
+
     main2();
     main3();
+}
+
+fn somar(numeros: (i32, i32)) -> i32 {
+    let (n1, n2) = numeros;
+    n1 + n2
 }
 
 fn main2() {
