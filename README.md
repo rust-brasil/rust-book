@@ -21,5 +21,7 @@ Este repositório contém notas, códigos e resumos sobre uma exploração do [R
   - [resumo do vídeo](/capitulo_03/README.md#o-tipo-de-tupla)
 - [Clube do Livro #03 - Conceitos comuns de programação - parte 06](https://www.youtube.com/watch?v=unsEb9KkOSw)
   - array
+  - [notebook](https://github.com/rust-brasil/rust-book/blob/master/capitulo_03/rust-array/Arrays.ipynb)
+  - [desafio](https://github.com/rust-brasil/rust-book/tree/master/capitulo_03/rust-array/array90)
 
 Os vídeos ainda estão em produção e são produzidos ao vivo toda segunda-feira, às 07h (BRT), em nosso [canal no Youtube](https://www.youtube.com/channel/UCxNiAlJpJPaRo80lOn1fstQ)
