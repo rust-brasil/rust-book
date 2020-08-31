@@ -379,4 +379,4 @@ https://doc.rust-lang.org/book/ch03-02-data-types.html#the-tuple-type
 https://doc.rust-lang.org/std/primitive.tuple.html  
 [código fonte - exemplos](/capitulo_03/rust-tuple/src/main.rs)
 
-#### O tipo de matriz
+#### [O tipo de matriz](./Arrays.ipynb)
