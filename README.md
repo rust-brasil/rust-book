@@ -12,7 +12,7 @@ Este repositório contém notas, códigos e resumos sobre uma exploração do [R
   - boolean
 - [#03 - Conceitos comuns de programação - parte 04](https://youtu.be/sSYDvtc7fSs)
   - [resumo do vídeo](/capitulo_03/README.md#o-tipo-caractere-char)
-- #03 - Conceitos comuns de programação - parte 05
+- [#03 - Conceitos comuns de programação - parte 05](https://www.youtube.com/watch?v=ra9rk1v_ktA)
   - [resumo do vídeo](/capitulo_03/README.md#o-tipo-de-tupla)
 - [#03 - Conceitos comuns de programação - parte 06](https://www.youtube.com/watch?v=unsEb9KkOSw)
 
