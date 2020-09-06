@@ -546,6 +546,15 @@ fn somar(numero1: i32, numero2: i32) -> i32 {
 }
 ```
 
+Observe que propositalmente não tem `;` nas linhas: 3,5,7 e 10
+pois são retorno da função.
+
+#### Assinatura de funções com retorno
+
+Se baseando no ultimo exemplo dados acima a assinatura da função `somar` é:
+
+`fn (i32, i32) -> i32`
+
 ### Macros Parecem Funções
 
 Caso você já tenha reparado que uma macro parece uma função, você não esta ficando maluco, macros realmente se parecem com uma função, principalmente se você observar como é a declaração para invocar a sua execução.
@@ -557,7 +566,7 @@ O que diferencia macros de função é que para declarar a execucação de uma m
 println!("numeros: {}", 123);
 
 // funcao
-exibir("numeros: {}", 123)
+exibir("numeros: {}", 123);
 ``` 
 
 
