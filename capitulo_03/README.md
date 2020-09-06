@@ -380,3 +380,190 @@ https://doc.rust-lang.org/std/primitive.tuple.html
 [código fonte - exemplos](/capitulo_03/rust-tuple/src/main.rs)
 
 #### [O tipo de matriz](./Arrays.ipynb)
+
+## 3.3 Funções
+
+### TL;DR
+
+- o que é uma função
+- a função main
+- declaração de funções
+- convenção de nomeação de funções
+- executando funções
+- parâmetros de função
+- assinatura da função
+- retorno da função
+- declarações e expressões
+- retorno em funções
+- macros parecem funções
+
+### O Que é Uma Função
+
+Uma função na linguagem Rust é um agrupamento ou conjunto de comandos, que tem o seu próprio escopo.
+
+A esse conjunto de comandos + escopo é dados um nome que é definido pela pessoa que esta escrevendo o programa, podendo a função ser invocada, pelo nome definido, varias vezes dentro do programa, podendo ou não passar parâmetros ou argumentos (input de dados) a serem processados e tendo um retorno de dados processados (output de dados).
+
+### A Função `main`
+
+A função mais importante do rust, você já conhece ela se chama `main` que é o ponto de entrada do programa também em muitas outras linguagens de programação.
+
+### Declaração de Funções
+
+A palavra chave `fn` é utilizada no rust para declarar uma função.
+
+Você pode declarar as suas funções antes ou depois da função `fn main()`, rust é flexível quanto a isso.
+
+### Convenção de Nomeação de Funções
+
+Rust usa como convenção _snake case_ para nomear funções, ou seja, todas as letras são minusculas e `_` é utilizado para separar as palavras, exemplo de código declarando uma função chamada "somar números":
+
+```rust
+fn nome_da_funcao() {
+    println!("funcao executada!");
+}
+```
+
+No exemplo acima, a palavra chave reservada do rust `fn` é utilizada para iniciar a declaração de uma função, em seguida vem o nome da função `nome_da_funcao`, toda declaração de função em rust tem um conjunto de parênteses após o nome da função e o conjunto de chaves `{...}`, na declaração da função delimitam onde inicia e onde termina o conjuntos de comandos que a função executa ao ser invocada.
+
+### Executando Funções
+
+Para utilizar/executar a função declarada acima utilizamos o seu nome seguido de um conjunto de parênteses.
+
+```rust
+fn nome_da_funcao() {
+    println!("funcao executada!");
+}
+
+fn main() {
+	nome_da_funcao();
+}
+```
+
+### Parâmetros de Função
+
+Parâmetros ou também conhecido como argumentos, são nomes que são informados na declaração da função, que tem o comportamento semelhante a declaração de variáveis que existirão somente no contexto da função e são valores informados quando a função é invocada a ser executada.
+
+```rust
+fn imprimir_a_soma_de_dois_numeros(numero1: i32, numero2: i32) {
+	let soma = numero1 + numero2;
+	println!("{} + {} = {}", numero1, numero2, soma);
+}
+```
+
+No exemplo acima temos uma função com o nome "imprimir_a_soma_de_dois_numeros", em seguida temos o conjunto de parenteses `(...)`, tudo o que está dentro dos parenteses é considerado parâmetros e/ou argumentos das funções, no caso temos o dois parÂmetros, um com o nome `numero1` definido com sendo do tipo `i32` e o segundo parâmetro com o nome `numero2` também definido com o tipo `i32`.
+
+Na linguagem Rust, você é obrigado a especificar explicitamente o tipo do parâmetro, assim esta definido propositalmente no design da linguagem, no exemplo acima isso é feito quando escrevemos: `numero1: i32` e `numero2: i32`, não existe inferir o tipo dos parÂmetros de acordo com a utilização dos mesmos no decorrer da função.
+
+Quando você quiser que uma função tenha vários parâmetros, separe as declarações dos parâmetros com vírgulas.
+
+### Assinatura da Função
+
+Assinatura da função, tem a ver com a ordem dos parâmetros e seus tipos, observe o exemplo:
+
+```rust
+fn imprimir_a_soma_de_dois_numeros(numero1: i32, numero2: i32) {
+	let soma = numero1 + numero2;
+	println!("{} + {} = {}", numero1, numero2, soma);
+}
+```
+
+A assinatura da função acima é:
+
+```
+fn (i32, i32)
+```
+
+O primeiro parâmetro sendo do tipo i32 e o segundo também, a assinatura de uma função seria a representação super simples da real declaração da função no código fonte.
+
+Cada função declarada no código fonte tera a sua própria assinatura, que existe em função de si mesma.
+
+A assinatura da função é algo que deve ser respeitada quando a função for invocada em algum momento dentro do seu programa, você não pode por exemplo invocar a função `imprimir_a_soma_de_dois_numeros` e passar um valor do tipo boolean no primeiro parametro e um valor do tipo numero inteiro no segundo parametro se a assinatura da função diz que o primeiro e o segundo parâmetro é do tipo numero inteiro.
+
+A assinatura de uma função é muito utilizada pelo intelissense das IDEs, como o vscode, utilizadas para escrever um programa em rust.
+
+Assinatura de uma função também é utilizada em variáveis do tipo "Ponteiros de Função", que servem para utilizar uma variável para apontar para um código(função) ao invés de dados, que geralmente é uma referência a uma outra função ou lambda, exemplo:
+
+```rust
+fn add_one(x: usize) -> usize {
+    x + 1
+}
+
+let ptr: fn(usize) -> usize = add_one;
+assert_eq!(ptr(5), 6);
+
+let clos: fn(usize) -> usize = |x| x + 5;
+assert_eq!(clos(5), 10);
+```
+
+### Retorno da Função
+
+Na declaração da função, quando essa tem um retorno de um tipo especifico, é necessário declarar o tipo de dados a ser retornado.
+
+Funções em Rust não aceitam retornar um valore nulo, a representação do valor null ou nulo em Rust não existe, mas é comumente utilizado o valor de tupla vazia em seu lugar `()`.
+
+Exemplo de declaração de função com retorno:
+
+```rust
+fn somar(numero1: i32, numero2: i32) -> i32 {
+	let soma = numero1 + numero2;
+	return soma;
+}
+```
+
+Neste exemplo utilizamos o `->` para definir na declaração da função, que o retorno esperado dessa função é do tipo `i32`.
+
+Você pode utilizar a palavra chave `return` para explicitamente informar o valor de retorno da função, no design da linguagem do Rust é possível utilizar uma outra opção para declarar o valor a ser retornado, deve ser o ultimo comando do bloco da função, não utilizar a palavra reservada `return` e não utilizar `;`, veja como fica:
+
+```rust
+fn somar(numero1: i32, numero2: i32) -> i32 {
+	let soma = numero1 + numero2;
+	soma
+}
+```
+
+ou mais simples ainda
+
+```rust
+fn somar(numero1: i32, numero2: i32) -> i32 {
+	numero1 + numero2
+}
+```
+
+Este recurso só pode ser utilizado uma única vez dentro das funções, observe que a função abaixo é válida:
+
+```rust
+fn somar(numero1: i32, numero2: i32) -> i32 {
+    if numero1 == 0 {
+        numero2
+    } else if numero2 == 0 {
+        numero1
+    } else if numero1 == numero2 {
+        numero1 * 2
+    } else {
+        let soma = numero1 + numero2;
+        soma
+    }
+}
+```
+
+### Macros Parecem Funções
+
+Caso você já tenha reparado que uma macro parece uma função, você não esta ficando maluco, macros realmente se parecem com uma função, principalmente se você observar como é a declaração para invocar a sua execução.
+
+O que diferencia macros de função é que para declarar a execucação de uma macro o `!` é utilizado após o nome da macro, em função isso não acontece, exemplo:
+
+```rust
+// macro
+println!("numeros: {}", 123);
+
+// funcao
+exibir("numeros: {}", 123)
+``` 
+
+
+### Referencias
+
+https://doc.rust-lang.org/book/ch03-03-how-functions-work.html
+https://doc.rust-lang.org/std/primitive.fn.html
+https://doc.rust-lang.org/stable/rust-by-example/fn.html
+https://doc.rust-lang.org/std/keyword.fn.html
