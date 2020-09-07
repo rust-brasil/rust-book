@@ -572,7 +572,7 @@ exibir("numeros: {}", 123);
 
 ### Referencias
 
-https://doc.rust-lang.org/book/ch03-03-how-functions-work.html
-https://doc.rust-lang.org/std/primitive.fn.html
-https://doc.rust-lang.org/stable/rust-by-example/fn.html
-https://doc.rust-lang.org/std/keyword.fn.html
+- https://doc.rust-lang.org/book/ch03-03-how-functions-work.html  
+- https://doc.rust-lang.org/std/primitive.fn.html  
+- https://doc.rust-lang.org/stable/rust-by-example/fn.html  
+- https://doc.rust-lang.org/std/keyword.fn.html  
